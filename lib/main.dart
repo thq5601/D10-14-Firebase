@@ -24,6 +24,7 @@ class MainApp extends StatelessWidget {
     return BlocProvider(
       create: (_) => AuthCubit(repo),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: BlocBuilder<AuthCubit, AuthState>(builder: (context, state){
           if (state is AuthAuthenticated){
             return const HomeScreen();
