@@ -33,13 +33,13 @@ class LoginScreen extends StatelessWidget {
                   },
                 ),
                 const SizedBox(height: 16),
-                // ElevatedButton.icon(
-                //   icon: const Icon(Icons.facebook),
-                //   label: const Text("Login with Facebook"),
-                //   onPressed: () {
-                //     context.read<AuthCubit>().loginWithFacebook();
-                //   },
-                // ),
+                ElevatedButton.icon(
+                  icon: const Icon(Icons.facebook),
+                  label: const Text("Login with Facebook"),
+                  onPressed: () {
+                    context.read<AuthCubit>().loginWithFacebook();
+                  },
+                ),
               ],
             );
           },
