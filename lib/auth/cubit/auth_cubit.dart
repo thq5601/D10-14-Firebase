@@ -32,6 +32,20 @@ class AuthCubit extends Cubit<AuthState>{
     }
   }
 
+  Future<void> loginWithFacebook() async {
+    try {
+      emit(AuthLoading());
+      final user = await _repository.signInWithFacebook();
+      if (user != null) {
+        emit(AuthAuthenticated(user));
+      } else {
+        emit(AuthError("Facebook sign-in cancelled"));
+      }
+    } catch (e) {
+      emit(AuthError(e.toString()));
+    }
+  }
+
   Future<void> logout() async {
     await _repository.signOut();
     emit(AuthLoggedOut());
