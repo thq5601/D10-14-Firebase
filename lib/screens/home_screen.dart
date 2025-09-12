@@ -1,3 +1,4 @@
+import 'package:firebase_app/screens/note_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../auth/cubit/auth_cubit.dart';
@@ -21,11 +22,16 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            body: Center(
-              child: CircleAvatar(
-                radius: 40,
-                backgroundImage: NetworkImage(state.user.photoURL ?? ""),
-              ),
+            body: Column(
+              children: [
+                Center(
+                  child: CircleAvatar(
+                    radius: 40,
+                    backgroundImage: NetworkImage(state.user.photoURL ?? ""),
+                  ),
+                ),
+                Expanded(child: NoteScreen()),
+              ],
             ),
           );
         }
