@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "715572141771",
+    "firebase_url": "https://fir-app-89570-default-rtdb.firebaseio.com",
     "project_id": "fir-app-89570",
     "storage_bucket": "fir-app-89570.firebasestorage.app"
   },
@@ -12,7 +13,28 @@
           "package_name": "com.example.firebase_app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "715572141771-7t6k723ttjnvkue5u99c1vhvkohjfjc2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebase_app",
+            "certificate_hash": "3da4e150888db4d3996c1cf7df27b03e70956fa9"
+          }
+        },
+        {
+          "client_id": "715572141771-oeqah445fpcm0vg1pb3hhi5407h98h62.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebase_app",
+            "certificate_hash": "53217eb24c21a26f0229612bdf4a8d3a7e6b033f"
+          }
+        },
+        {
+          "client_id": "715572141771-s5e280vg4j26devibdv0228c4uem4hs1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyA6qxNAY1t_pfrcPET_7_2effgyYszOezA"
@@ -20,7 +42,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715572141771-s5e280vg4j26devibdv0228c4uem4hs1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "715572141771-8aq7fbegg9146opnontcieshv404fla3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseApp"
+              }
+            }
+          ]
         }
       }
     }
