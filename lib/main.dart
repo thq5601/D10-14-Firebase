@@ -15,6 +15,7 @@ import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+@pragma('vm:entry-point')
 Future<void> firebaseMessagingBackgroundHandler(
   RemoteMessage remoteMessage,
 ) async {
@@ -114,7 +115,7 @@ class _MainAppState extends State<MainApp> {
       child: BlocBuilder<ThemeCubit, ThemeState>(
         builder: (context, themeState) {
           return MaterialApp(
-            navigatorKey: navigatorKey, // 👈 thêm navigatorKey ở đây
+            navigatorKey: navigatorKey,
             debugShowCheckedModeBanner: false,
             theme: themeState is ThemeDark
                 ? ThemeData.dark()
