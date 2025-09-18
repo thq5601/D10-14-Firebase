@@ -34,13 +34,17 @@ class HomeScreen extends StatelessWidget {
                 Center(
                   child: CircleAvatar(
                     radius: 40,
-                    // backgroundImage: NetworkImage(state.user.photoURL ?? ""),
-                    child: Image.network(
-                      state.user.photoURL ?? "",
-                      errorBuilder: (context, error, stackTrace) =>
-                          const Icon(Icons.account_circle, size: 40),
-                    ),
-                  ),
+                    backgroundImage:
+                        state.user.photoURL != null &&
+                            state.user.photoURL!.isNotEmpty
+                        ? NetworkImage(state.user.photoURL!)
+                        : null,
+                    child:
+                        (state.user.photoURL == null ||
+                            state.user.photoURL!.isEmpty)
+                        ? const Icon(Icons.account_circle, size: 40)
+                        : null,
+                  )
                 ),
                 Expanded(child: NoteScreen()),
               ],
