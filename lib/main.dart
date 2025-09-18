@@ -30,6 +30,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
+  FirebaseFirestore.instance.settings = const Settings(
+    persistenceEnabled: true, //Cho phep cache offline
+    cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED, //Khong gioi han cache
+  );
+
   final remoteConfig = FirebaseRemoteConfig.instance;
   await remoteConfig.setDefaults({"app_theme": "light"});
   await remoteConfig.setConfigSettings(
@@ -38,7 +43,11 @@ void main() async {
       minimumFetchInterval: Duration.zero,
     ),
   );
+  try {
   await remoteConfig.fetchAndActivate();
+} catch (e) {
+  print("Remote Config offline, cache: $e");
+}
 
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
