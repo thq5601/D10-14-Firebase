@@ -10,11 +10,17 @@ class ThemeCubit extends Cubit<ThemeState> {
   }
 
   Future<void> loadTheme() async {
-    final theme = remoteConfig.getString("app_theme");
-    if (theme == "light") {
-      emit(ThemeLight());
-    } else {
-      emit(ThemeDark());
+    try {
+      //Doc tu cache truoc
+      final theme = remoteConfig.getString("app_theme");
+      emit(theme == "dark" ? ThemeDark() : ThemeLight());
+
+      //Fetch online
+      await remoteConfig.fetchAndActivate();
+      final newTheme = remoteConfig.getString("app_theme");
+      emit(newTheme == "dark" ? ThemeDark() : ThemeLight());
+    } catch (e) {
+      print("Remote config offline, dung gia tri cu: $e");
     }
   }
 
